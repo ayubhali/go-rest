@@ -1,21 +1,34 @@
 package main
 
-type todo struct {
-    id string `json:"id"`
-    item string `json:"title"`
-    completed bool `json: "completed"`
+import (
+	"net/http"
+
+	"github.com/gin-gonic/gin"
+)
+type Todo struct {
+    ID        string `json:"id"`         // Unique id
+    Item      string `json:"title"`      // Task desc
+    Completed bool   `json:"completed"`  // Status of task 
 }
 
-var todos = []todo{
-    {id: "1", item: "Clean Room", completed: false },
-    {id: "2", item: "Read Book", completed: false },
-    {id: "3", item: "Record Video", completed: false },
+//  Data
+var todos = []Todo{
+    {ID: "1", Item: "Clean Room", Completed: false }, 
+    {ID: "2", Item: "Read Book", Completed: false }, 
+    {ID: "3", Item: "Record Video", Completed: false }, 
 }
 
 // Diff struc that JSON
-
-// Client & the Server communicating through JSON
 // Server -> Sending to Client convert the DS to JSON & vice versa 
 
+// incoming http request 
+func getTodos(context *gin.Context) { 
+    context.IndentedJSON(http.StatusOK, todos)  
+}
 
-// Server Creation
+// Server Creation & Endpoint
+func main() {
+  router := gin.Default()         // Create a new router
+  router.GET("/todos", getTodos)  // Endpoint Creation
+  router.Run("localhost:9090")    
+}
