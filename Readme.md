@@ -1,4 +1,3 @@
-````md
 # Todo API with Gin
 
 This is a simple RESTful API for managing todos using the Gin framework in Go.
@@ -6,11 +5,11 @@ This is a simple RESTful API for managing todos using the Gin framework in Go.
 ## Installation
 
 1. Clone the repository:
+
    ```sh
    git clone https://github.com/yourusername/todo-api-gin.git
    cd todo-api-gin
    ```
-````
 
 2. Install dependencies:
    ```sh
@@ -41,14 +40,10 @@ This is a simple RESTful API for managing todos using the Gin framework in Go.
 
 Returns a list of all todos.
 
-![GET Todos](Get.PNG)
+![GET Todos](imgs/Get.PNG)
 
 ### POST /todos
 
 Adds a new todo.
 
-![POST Todo](POST.PNG)
-
-```
-
-```
+![POST Todo](imgs/POST.PNG)
